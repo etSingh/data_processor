@@ -3,8 +3,8 @@
 # Declare variables to be passed into your templates.
 replicaCount: 1
 image:
-  repository: draft
-  tag: dev
+  repository: 10.63.246.110:5000/etsingh/data-processor
+  tag: 0.0.1
   pullPolicy: IfNotPresent
 service:
   name: data-processor
