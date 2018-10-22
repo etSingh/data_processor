@@ -3,6 +3,7 @@ package com.example.data_processor.service;
 import com.example.data_processor.DemoApplication;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -18,13 +19,18 @@ public class WordCountServiceTest {
     @Before
     public void setup() {
         System.setProperty("hadoop.home.dir", getClass()
-            .getClassLoader()
-            .getResource("hadoop")
-            .getPath());
+                .getClassLoader()
+                .getResource("hadoop")
+                .getPath());
     }
 
     @Test
     public void shouldReturnCountOfWords() {
-        wordCountService.countWords(getClass().getClassLoader().getResource("files/caesar.txt").getPath());
+        Assertions.assertNotNull
+                (wordCountService
+                        .countWords(getClass()
+                                .getClassLoader()
+                                .getResource("files/caesar.txt")
+                                .getPath()));
     }
 }

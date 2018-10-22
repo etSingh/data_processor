@@ -1,11 +1,5 @@
 package com.example.data_processor.service;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.regex.Pattern;
-import javax.sql.rowset.Predicate;
 import org.apache.spark.SparkConf;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Encoders;
@@ -13,6 +7,12 @@ import org.apache.spark.sql.SparkSession;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import scala.Tuple2;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.regex.Pattern;
 
 @Service
 public class WordCountService {
@@ -26,7 +26,7 @@ public class WordCountService {
         return executeJob(file);
     }
 
-    private String executeJob(String file) { // PairFlatMapFunction<String, String, Integer> f) {
+    private String executeJob(String file) {
 
         Pattern pattern = Pattern.compile("\\s");
 
